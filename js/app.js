@@ -26,11 +26,13 @@ function shuffle(array) {
 }
 
 
-const card = document.querySelector('.card');
+const deck = document.querySelector('.deck');
 
-card.addEventListener('click', function() {
-    console.log ("flip");
+deck.addEventListener('click', function(event) {
+    if (event.target.nodeName == 'LI')
+    console.log('flip');
 });
+
 
 /*
  * set up the event listener for a card. If a card is clicked:
