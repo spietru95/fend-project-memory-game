@@ -30,7 +30,8 @@ const deck = document.querySelector('.deck');
 
 deck.addEventListener('click', function(event) {
     if (event.target.nodeName == 'LI')
-    console.log('flip');
+    event.target.classList.toggle('show');
+    event.target.classList.toggle('open');
 });
 
 
