@@ -29,10 +29,14 @@ function shuffle(array) {
 const deck = document.querySelector('.deck');
 
 deck.addEventListener('click', function(event) {
-    if (event.target.nodeName == 'LI')
+    let openCards = document.querySelectorAll('.open');
+    if (event.target.nodeName == 'LI' && openCards.length == 0) {
     event.target.classList.toggle('show');
     event.target.classList.toggle('open');
+    }
 });
+
+
 
 
 /*
