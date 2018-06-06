@@ -34,6 +34,9 @@ deck.addEventListener('click', function(event) {
     event.target.classList.toggle('show');
     event.target.classList.toggle('open');
     }
+    else {
+        console.log(openCards.item(0).firstElementChild); 
+    }
 });
 
 
