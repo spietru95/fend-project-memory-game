@@ -32,7 +32,25 @@ const deck = document.querySelector('.deck');
     function Flip(card) {
         card.classList.add('open', 'show');
     }
-//C
+
+//Check for Match Function//
+    function checkMatch(cardA, cardB) {
+        if (cardA.classlist == cardB.classlist) {
+            console.log('match');
+            cardA.classList.add('match');
+            cardB.classList.add('match');
+        }
+        else {
+            cardA.classList.remove('open', 'show');
+            cardB.classList.remove('open', 'show');
+        }
+    }
+// Click Flip and Check for Match on 2nd Flip //
+    deck.addEventListener('click', function(event) {
+        if (event.target.nodeName = 'LI') {
+            console.log('ye');
+        }
+    });
 
 
 
