@@ -39,16 +39,28 @@ const deck = document.querySelector('.deck');
             console.log('match');
             cardA.classList.add('match');
             cardB.classList.add('match');
+            cardA.classList.remove('open');
+            cardB.classList.remove('open');
         }
         else {
-            cardA.classList.remove('open', 'show');
-            cardB.classList.remove('open', 'show');
+            cardA.classList.remove('open',);
+            cardB.classList.remove('open',);
         }
     }
 // Click Flip and Check for Match on 2nd Flip //
     deck.addEventListener('click', function(event) {
-        if (event.target.nodeName = 'LI') {
-            console.log('ye');
+        let openCards = document.querySelectorAll('.open');
+        if (event.target.nodeName == 'LI' && openCards.length == 0) {
+            console.log('first flip');
+            Flip(event.target);
+        }
+        else if (event.target.nodeName == 'LI') {
+            Flip(event.target);
+            let openCards = document.querySelectorAll('.open');
+            console.log('second flip');
+            console.log(openCards[0]);
+            console.log(openCards[1]);
+            checkMatch(openCards[0], openCards[1]);
         }
     });
 
