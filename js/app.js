@@ -34,8 +34,17 @@ const deck = document.querySelector('.deck');
     }
 
 // UnFlip Function //
-    function unFlip() { 
+    function unFlip(card) { 
+        card.classList.remove('open', 'show');
         
+    }
+// Match Function //
+    function matchEm(cardA, cardB) {
+        cardA.classList.remove('open');
+        cardB.classList.remove('open');
+        cardA.classList.add('match');
+        cardB.classList.add('match');
+
     }
 
 // Check for Win Function //
@@ -49,15 +58,12 @@ const deck = document.querySelector('.deck');
 //Check for Match Function//
     function checkMatch(cardA, cardB) {
         if (cardA.children[0].classList[1] == cardB.children[0].classList[1]) {
-            cardA.classList.add('match');
-            cardB.classList.add('match');
-            cardA.classList.remove('open');
-            cardB.classList.remove('open');
+            matchEm(cardA, cardB);
             checkWin();
         }
         else {
-            cardA.classList.remove('open', 'show');
-            cardB.classList.remove('open', 'show');
+            unFlip(cardA);
+            unFlip(cardB);
             //unFlip will go here//
         }
     }
