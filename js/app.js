@@ -27,6 +27,8 @@ function shuffle(array) {
 
 
 const deck = document.querySelector('.deck');
+const moves = document.querySelector('span');
+let n = 0
 
 // Flip Function //
     function Flip(card) {
@@ -55,18 +57,20 @@ const deck = document.querySelector('.deck');
         }
     }
 
-// Count Number of Moves Function //
-
+// Increase Number of Moves Function //
+    function increaseMoves() {
+        n = n + 1;;
+        moves.innerHTML= n;
+    }
 //Check for Match Function//
     function checkMatch(cardA, cardB) {
         if (cardA.children[0].classList[1] == cardB.children[0].classList[1]) {
             matchEm(cardA, cardB);
-            checkWin();
+            
         }
         else {
             unFlip(cardA);
             unFlip(cardB);
-            //unFlip will go here//
         }
     }
 // Click Flip and Check for Match on 2nd Flip //
@@ -79,6 +83,8 @@ const deck = document.querySelector('.deck');
             Flip(event.target);
             let openCards = document.querySelectorAll('.open');
             checkMatch(openCards[0], openCards[1]);
+            checkWin();
+            increaseMoves();
         }
     });
 
