@@ -32,8 +32,18 @@ const deck = document.querySelector('.deck');
     function Flip(card) {
         card.classList.add('open', 'show');
     }
-    function unFlip {
+
+// UnFlip Function //
+    function unFlip() { 
         
+    }
+
+// Check for Win Function //
+    function checkWin() {
+        let matchedCards = document.querySelectorAll('.match');
+        if (matchedCards.length == 16) {
+            console.log('winner!');
+        }
     }
 
 //Check for Match Function//
@@ -43,10 +53,12 @@ const deck = document.querySelector('.deck');
             cardB.classList.add('match');
             cardA.classList.remove('open');
             cardB.classList.remove('open');
+            checkWin();
         }
         else {
             cardA.classList.remove('open', 'show');
             cardB.classList.remove('open', 'show');
+            //unFlip will go here//
         }
     }
 // Click Flip and Check for Match on 2nd Flip //
@@ -59,7 +71,6 @@ const deck = document.querySelector('.deck');
             Flip(event.target);
             let openCards = document.querySelectorAll('.open');
             checkMatch(openCards[0], openCards[1]);
-           
         }
     });
 
