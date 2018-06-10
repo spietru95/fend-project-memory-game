@@ -35,7 +35,7 @@ const deck = document.querySelector('.deck');
 
 //Check for Match Function//
     function checkMatch(cardA, cardB) {
-        if (cardA.classlist == cardB.classlist) {
+        if (cardA.children[0].classList[1] == cardB.children[0].classList[1]) {
             console.log('match');
             cardA.classList.add('match');
             cardB.classList.add('match');
@@ -43,8 +43,8 @@ const deck = document.querySelector('.deck');
             cardB.classList.remove('open');
         }
         else {
-            cardA.classList.remove('open',);
-            cardB.classList.remove('open',);
+            cardA.classList.remove('open', 'show');
+            cardB.classList.remove('open', 'show');
         }
     }
 // Click Flip and Check for Match on 2nd Flip //
@@ -61,6 +61,7 @@ const deck = document.querySelector('.deck');
             console.log(openCards[0]);
             console.log(openCards[1]);
             checkMatch(openCards[0], openCards[1]);
+            console.log(openCards[0].children[0].classList[1]);
         }
     });
 
