@@ -55,6 +55,8 @@ const deck = document.querySelector('.deck');
         }
     }
 
+// Count Number of Moves Function //
+
 //Check for Match Function//
     function checkMatch(cardA, cardB) {
         if (cardA.children[0].classList[1] == cardB.children[0].classList[1]) {
