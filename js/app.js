@@ -32,11 +32,13 @@ const deck = document.querySelector('.deck');
     function Flip(card) {
         card.classList.add('open', 'show');
     }
+    function unFlip {
+        
+    }
 
 //Check for Match Function//
     function checkMatch(cardA, cardB) {
         if (cardA.children[0].classList[1] == cardB.children[0].classList[1]) {
-            console.log('match');
             cardA.classList.add('match');
             cardB.classList.add('match');
             cardA.classList.remove('open');
@@ -51,17 +53,13 @@ const deck = document.querySelector('.deck');
     deck.addEventListener('click', function(event) {
         let openCards = document.querySelectorAll('.open');
         if (event.target.nodeName == 'LI' && openCards.length == 0) {
-            console.log('first flip');
             Flip(event.target);
         }
         else if (event.target.nodeName == 'LI') {
             Flip(event.target);
             let openCards = document.querySelectorAll('.open');
-            console.log('second flip');
-            console.log(openCards[0]);
-            console.log(openCards[1]);
             checkMatch(openCards[0], openCards[1]);
-            console.log(openCards[0].children[0].classList[1]);
+           
         }
     });
 
