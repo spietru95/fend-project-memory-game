@@ -37,8 +37,9 @@ let n = 0
 
 // UnFlip Function //
     function unFlip(card) { 
-        card.classList.remove('open', 'show');
-        
+        setTimeout(function() {
+            card.classList.remove('open', 'show');
+        }, 1500);
     }
 // Match Function //
     function matchEm(cardA, cardB) {
@@ -69,8 +70,8 @@ let n = 0
             
         }
         else {
-            unFlip(cardA);
-            unFlip(cardB);
+            setTimeout(unFlip(cardA), 1000);
+            setTimeout(unFlip(cardB), 1000);
         }
     }
 // Click Flip and Check for Match on 2nd Flip //
