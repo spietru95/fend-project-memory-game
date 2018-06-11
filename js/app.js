@@ -62,7 +62,8 @@ let n = 0
         n = n + 1;;
         moves.innerHTML= n;
     }
-//Check for Match Function//
+
+//Check for Match or Unflip Function//
     function checkMatch(cardA, cardB) {
         if (cardA.children[0].classList[1] == cardB.children[0].classList[1]) {
             matchEm(cardA, cardB);
@@ -83,8 +84,8 @@ let n = 0
             Flip(event.target);
             let openCards = document.querySelectorAll('.open');
             checkMatch(openCards[0], openCards[1]);
-            checkWin();
             increaseMoves();
+            checkWin();
         }
     });
 
