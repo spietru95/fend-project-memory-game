@@ -39,7 +39,7 @@ let n = 0
     function unFlip(card) { 
         setTimeout(function() {
             card.classList.remove('open', 'show');
-        }, 1500);
+        }, 1000);
     }
 // Match Function //
     function matchEm(cardA, cardB) {
@@ -70,8 +70,8 @@ let n = 0
             
         }
         else {
-            setTimeout(unFlip(cardA), 1000);
-            setTimeout(unFlip(cardB), 1000);
+            unFlip(cardA);
+            unFlip(cardB);
         }
     }
 // Click Flip and Check for Match on 2nd Flip //
