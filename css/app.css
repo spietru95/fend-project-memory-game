@@ -108,3 +108,8 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+
+#hidden {
+    display: none;
+}
