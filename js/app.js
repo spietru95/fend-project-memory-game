@@ -55,24 +55,24 @@ const star3 = star2.nextElementSibling;
 
 // Decrement Stars Function //
     function checkStars() {
-        if (moves.innerHTML < 10) {
+        if (moves.innerHTML < 12) {
 
         }
         else if (moves.innerHTML < 20) {
-            star1.style.display = 'none';
+            star1.id = 'hidden';
         }
         else if (moves.innerHTML < 28) {
-            star2.style.display = 'none';
+            star2.id = 'hidden';
         }
         else {
-            star3.style.display = 'none';
+            star3.id = 'hidden';
         }
     }
 // Check for Win Function //
     function checkWin() {
         let matchedCards = document.querySelectorAll('.match');
         if (matchedCards.length == 16) {
-            alert('Congratulations, you won in ' + moves.innerHTML + ' moves and earned ' + document.querySelectorAll('.fa-star').length + ' stars!');
+            alert('Congratulations, you won in ' + moves.innerHTML + ' moves and earned ' + (3 - document.querySelectorAll('#hidden').length) + ' stars!');
         }
     }
 
