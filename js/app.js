@@ -25,10 +25,13 @@ function shuffle(array) {
     return array;
 }
 
-
+// Constants! //
 const deck = document.querySelector('.deck');
 const moves = document.querySelector('span');
 let n = 0
+const star1 = document.querySelector('.stars').firstElementChild;
+const star2 = star1.nextElementSibling;
+const star3 = star2.nextElementSibling;
 
 // Flip Function //
     function Flip(card) {
@@ -50,6 +53,21 @@ let n = 0
 
     }
 
+// Decrement Stars Function //
+    function checkStars() {
+        if (moves.innerHTML < 10) {
+
+        }
+        else if (moves.innerHTML < 20) {
+            star1.style.display = 'none';
+        }
+        else if (moves.innerHTML < 28) {
+            star2.style.display = 'none';
+        }
+        else {
+            star3.style.display = 'none';
+        }
+    }
 // Check for Win Function //
     function checkWin() {
         let matchedCards = document.querySelectorAll('.match');
@@ -86,6 +104,7 @@ let n = 0
             let openCards = document.querySelectorAll('.open');
             checkMatch(openCards[0], openCards[1]);
             increaseMoves();
+            checkStars();
             checkWin();
         }
     });
