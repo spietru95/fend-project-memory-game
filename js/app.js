@@ -37,8 +37,9 @@ let n = 0
 
 // UnFlip Function //
     function unFlip(card) { 
-        card.classList.remove('open', 'show');
-        
+        setTimeout(function() {
+            card.classList.remove('open', 'show');
+        }, 1000);
     }
 // Match Function //
     function matchEm(cardA, cardB) {
