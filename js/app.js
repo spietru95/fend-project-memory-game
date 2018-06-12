@@ -72,7 +72,7 @@ const star3 = star2.nextElementSibling;
     function checkWin() {
         let matchedCards = document.querySelectorAll('.match');
         if (matchedCards.length == 16) {
-            console.log('winner!');
+            alert('Congratulations, you won in ' + moves.innerHTML + ' moves and earned ' + document.querySelectorAll('.fa-star').length + ' stars!');
         }
     }
 
@@ -93,6 +93,7 @@ const star3 = star2.nextElementSibling;
             unFlip(cardB);
         }
     }
+
 // Click Flip and Check for Match on 2nd Flip //
     deck.addEventListener('click', function(event) {
         let openCards = document.querySelectorAll('.open');
