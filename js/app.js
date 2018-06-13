@@ -25,6 +25,10 @@ function shuffle(array) {
     return array;
 }
 
+
+
+
+
 // Constants! //
 const deck = document.querySelector('.deck');
 const moves = document.querySelector('span');
@@ -32,6 +36,20 @@ let n = 0
 const star1 = document.querySelector('.stars').firstElementChild;
 const star2 = star1.nextElementSibling;
 const star3 = star2.nextElementSibling;
+const cards = document.querySelectorAll('.card');
+const symbolsnodelist = deck.querySelectorAll('.fa');
+
+// Convert nodelist to Array // Going to have to put the shuffler in here.
+  function convertNodeList(list) {
+      var array = [];
+      for (var i = 0; i < list.length; i++) {
+          array[i] = list[i].toString;
+      }
+      shuffle(array);
+      return array[0].toString;
+      cards[0].innerHTML = array[0].toString;
+}
+
 
 // Flip Function //
     function Flip(card) {
@@ -110,6 +128,22 @@ const star3 = star2.nextElementSibling;
         }
     });
 
+    // Clear card Function //
+    function clearCard(e) {
+        e.innerHTML = '';
+     }
+
+    // Fill card Function //
+    function fillCards() {
+        for (i = 0; i < 16; i++) {
+            cards[i].innerHTML = array[i];
+        }
+    }
+
+    // Reset button shuffles and unflips cards //
+    function Reset() {
+        cards.forEach(clearCard);
+    }
 
 
 
