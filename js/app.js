@@ -58,13 +58,20 @@ const symbolsarray = ['fa-diamond', 'fa-diamond', 'fa-paper-plane', 'fa-paper-pl
         cardB.classList.remove('open');
         cardA.classList.add('match');
         cardB.classList.add('match');
+    }
 
+// Unmatch Function
+    function unMatch(e) {
+        e.classList.remove('show');
+        e.classList.remove('match');
     }
 
 // Decrement Stars Function //
     function checkStars() {
         if (moves.innerHTML < 12) {
-
+            star1.id = '';
+            star2.id = '';
+            star3.id = '';
         }
         else if (moves.innerHTML < 20) {
             star1.id = 'hidden';
@@ -120,19 +127,25 @@ const symbolsarray = ['fa-diamond', 'fa-diamond', 'fa-paper-plane', 'fa-paper-pl
 
     // Clear card Function //
     function clearCard(e) {
-        e.innerHTML = '';
+        e.firstElementChild.classList = 'fa';
      }
 
     // Fill card Function //
     function fillCards() {
         for (i = 0; i < 16; i++) {
-            cards[i].innerHTML = array[i];
+            cards[i].firstElementChild.classList.add(symbolsarray[i]);
         }
     }
 
     // Reset button shuffles and unflips cards //
     function Reset() {
+        cards.forEach(unMatch);
         cards.forEach(clearCard);
+        shuffle(symbolsarray);
+        fillCards();
+        n = 0;
+        moves.innerHTML = n;
+        checkStars();
     }
 
 
