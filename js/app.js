@@ -33,8 +33,8 @@ const star1 = document.querySelector('.stars').firstElementChild;
 const star2 = star1.nextElementSibling;
 const star3 = star2.nextElementSibling;
 const cards = document.querySelectorAll('.card');
-const symbolsarray = ['fa-diamond', 'fa-diamond', 'fa-paper-plane', 'fa-paper-plane', 'fa-anchor', 'fa-anchor', 'fa-bolt', 'fa-bolt', 'fa-cube', 'fa-cube', 'fa-leaf', 'fa-leaf', 'fa-bicycle', 'fa-bicycle', 'fa-leaf', 'fa-leaf'];
-
+const symbolsArray = ['fa-diamond', 'fa-diamond', 'fa-paper-plane', 'fa-paper-plane', 'fa-anchor', 'fa-anchor', 'fa-bolt', 'fa-bolt', 'fa-cube', 'fa-cube', 'fa-leaf', 'fa-leaf', 'fa-bicycle', 'fa-bicycle', 'fa-bomb', 'fa-bomb'];
+const resetButton = document.querySelector('.fa-repeat');
 //Randomize cards on page load //
 window.onload = Reset();
 
@@ -86,7 +86,7 @@ window.onload = Reset();
     function checkWin() {
         let matchedCards = document.querySelectorAll('.match');
         if (matchedCards.length == 16) {
-            alert('Congratulations, you won in ' + moves.innerHTML + ' moves and earned ' + (3 - document.querySelectorAll('#hidden').length) + ' stars!');
+            alert('Congratulations, you won in ' + moves.innerHTML + ' moves and earned ' + (3 - document.querySelectorAll('#hidden').length) + ' stars!  Click the reset button to play again.');
         }
     }
 
@@ -132,20 +132,23 @@ window.onload = Reset();
     // Fill card Function //
     function fillCards() {
         for (i = 0; i < 16; i++) {
-            cards[i].firstElementChild.classList.add(symbolsarray[i]);
+            cards[i].firstElementChild.classList.add(symbolsArray[i]);
         }
     }
 
-    // Reset button shuffles and unflips cards //
+    // Reset shuffles, unflips cards, re-fills them, and resets moves and stars. //
     function Reset() {
         cards.forEach(unMatch);
         cards.forEach(clearCard);
-        shuffle(symbolsarray);
+        shuffle(symbolsArray);
         fillCards();
         n = 0;
         moves.innerHTML = n;
         checkStars();
     }
+
+    // Reset button click event //
+    resetButton.addEventListener('click', Reset);
 
 
 
