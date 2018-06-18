@@ -25,10 +25,6 @@ function shuffle(array) {
     return array;
 }
 
-
-
-
-
 // Constants! //
 const deck = document.querySelector('.deck');
 const moves = document.querySelector('span');
@@ -38,6 +34,9 @@ const star2 = star1.nextElementSibling;
 const star3 = star2.nextElementSibling;
 const cards = document.querySelectorAll('.card');
 const symbolsarray = ['fa-diamond', 'fa-diamond', 'fa-paper-plane', 'fa-paper-plane', 'fa-anchor', 'fa-anchor', 'fa-bolt', 'fa-bolt', 'fa-cube', 'fa-cube', 'fa-leaf', 'fa-leaf', 'fa-bicycle', 'fa-bicycle', 'fa-leaf', 'fa-leaf'];
+
+//Randomize cards on page load //
+window.onload = Reset();
 
 
 
