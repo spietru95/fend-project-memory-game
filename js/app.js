@@ -37,18 +37,8 @@ const star1 = document.querySelector('.stars').firstElementChild;
 const star2 = star1.nextElementSibling;
 const star3 = star2.nextElementSibling;
 const cards = document.querySelectorAll('.card');
-const symbolsnodelist = deck.querySelectorAll('.fa');
+const symbolsarray = ['fa-diamond', 'fa-diamond', 'fa-paper-plane', 'fa-paper-plane', 'fa-anchor', 'fa-anchor', 'fa-bolt', 'fa-bolt', 'fa-cube', 'fa-cube', 'fa-leaf', 'fa-leaf', 'fa-bicycle', 'fa-bicycle', 'fa-leaf', 'fa-leaf'];
 
-// Convert nodelist to Array // Going to have to put the shuffler in here.
-  function convertNodeList(list) {
-      var array = [];
-      for (var i = 0; i < list.length; i++) {
-          array[i] = list[i].toString;
-      }
-      shuffle(array);
-      return array[0].toString;
-      cards[0].innerHTML = array[0].toString;
-}
 
 
 // Flip Function //
