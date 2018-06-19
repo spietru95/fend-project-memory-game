@@ -35,19 +35,25 @@ const star3 = star2.nextElementSibling;
 const cards = document.querySelectorAll('.card');
 const symbolsArray = ['fa-diamond', 'fa-diamond', 'fa-paper-plane', 'fa-paper-plane', 'fa-anchor', 'fa-anchor', 'fa-bolt', 'fa-bolt', 'fa-cube', 'fa-cube', 'fa-leaf', 'fa-leaf', 'fa-bicycle', 'fa-bicycle', 'fa-bomb', 'fa-bomb'];
 const resetButton = document.querySelector('.fa-repeat');
-var seconds = 0;
+let totalSeconds = 0;
 
 //Randomize cards on page load //
 window.onload = Reset();
 
 function timer() {
-    setInterval(count, 1000);
+    var timervar = setInterval(count, 1000);
         function count() {
-        ++seconds;
-        var hour = Math.floor(seconds/3600);
-        var minute = Math.floor((seconds - hour*3600)/60);
-        var seconds = seconds - (hour*3600 + minute*60);
-        document.querySelector('.timer').innerHTML = 'Timer' + hour + ':' + minute + ':' + seconds;
+            let matchedCards = document.querySelectorAll('.match');
+            if (matchedCards.length == 16) {
+                return;
+            }
+            else {
+            ++totalSeconds;
+            var hour = Math.floor(totalSeconds /3600);
+            var minute = Math.floor((totalSeconds - hour*3600)/60);
+            var seconds = totalSeconds - (hour*3600 + minute*60);
+            document.querySelector('.timer').innerHTML = 'Timer ' + hour + ':' + minute + ':' + seconds;
+            }
     }
 }
 
