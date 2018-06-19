@@ -35,10 +35,19 @@ const star3 = star2.nextElementSibling;
 const cards = document.querySelectorAll('.card');
 const symbolsArray = ['fa-diamond', 'fa-diamond', 'fa-paper-plane', 'fa-paper-plane', 'fa-anchor', 'fa-anchor', 'fa-bolt', 'fa-bolt', 'fa-cube', 'fa-cube', 'fa-leaf', 'fa-leaf', 'fa-bicycle', 'fa-bicycle', 'fa-bomb', 'fa-bomb'];
 const resetButton = document.querySelector('.fa-repeat');
+var seconds = 0;
+
 //Randomize cards on page load //
 window.onload = Reset();
 
-
+function timer() {
+    setInterval(count, 1000) {
+        ++seconds;
+        var hour = Math.floor(seconds/3600);
+        var minute = Math.floor((seconds - hour*3600)/60);
+        var seconds = seconds - (hour*3600 + minute*60);
+    }
+}
 
 // Flip Function //
     function Flip(card) {

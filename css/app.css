@@ -113,3 +113,9 @@ h1 {
 #hidden {
     display: none;
 }
+
+.timer {
+    display: inline-block;
+    margin-left: 10%;
+
+}
