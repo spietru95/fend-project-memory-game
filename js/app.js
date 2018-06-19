@@ -41,11 +41,13 @@ var seconds = 0;
 window.onload = Reset();
 
 function timer() {
-    setInterval(count, 1000) {
+    setInterval(count, 1000);
+        function count() {
         ++seconds;
         var hour = Math.floor(seconds/3600);
         var minute = Math.floor((seconds - hour*3600)/60);
         var seconds = seconds - (hour*3600 + minute*60);
+        document.querySelector('.timer').innerHTML = 'Timer' + hour + ':' + minute + ':' + seconds;
     }
 }
 
