@@ -36,23 +36,24 @@ const cards = document.querySelectorAll('.card');
 const symbolsArray = ['fa-diamond', 'fa-diamond', 'fa-paper-plane', 'fa-paper-plane', 'fa-anchor', 'fa-anchor', 'fa-bolt', 'fa-bolt', 'fa-cube', 'fa-cube', 'fa-leaf', 'fa-leaf', 'fa-bicycle', 'fa-bicycle', 'fa-bomb', 'fa-bomb'];
 const resetButton = document.querySelector('.fa-repeat');
 let totalSeconds = 0;
+let gameStart = false;
 
 //Randomize cards on page load //
 window.onload = Reset();
+window.onload = timer();
 
 function timer() {
     var timervar = setInterval(count, 1000);
         function count() {
             let matchedCards = document.querySelectorAll('.match');
-            if (matchedCards.length == 16) {
+            if (gameStart == false) {
                 return;
             }
             else {
             ++totalSeconds;
-            var hour = Math.floor(totalSeconds /3600);
-            var minute = Math.floor((totalSeconds - hour*3600)/60);
-            var seconds = totalSeconds - (hour*3600 + minute*60);
-            document.querySelector('.timer').innerHTML = 'Timer ' + hour + ':' + minute + ':' + seconds;
+            var minute = Math.floor((totalSeconds)/60);
+            var seconds = totalSeconds - (minute*60);
+            document.querySelector('.timer').innerHTML = 'Timer ' + minute + ':' + seconds;
             }
     }
 }
@@ -103,7 +104,10 @@ function timer() {
     function checkWin() {
         let matchedCards = document.querySelectorAll('.match');
         if (matchedCards.length == 16) {
-            alert('Congratulations, you won in ' + moves.innerHTML + ' moves and earned ' + (3 - document.querySelectorAll('#hidden').length) + ' stars!  Click the reset button to play again.');
+            var minute = Math.floor((totalSeconds)/60);
+            var seconds = totalSeconds - (minute*60);
+            alert('Congratulations, you won in ' + moves.innerHTML + ' moves, ' + minute + ' minutes, and ' + seconds + ' seconds.  You also earned ' + (3 - document.querySelectorAll('#hidden').length) + ' stars!  Click the reset button to play again.');
+            gameStart = false;
         }
     }
 
@@ -128,6 +132,7 @@ function timer() {
 // Click Flip and Check for Match on 2nd Flip //
     deck.addEventListener('click', function(event) {
         let openCards = document.querySelectorAll('.open');
+        gameStart = true;
         if (event.target.nodeName == 'LI' && openCards.length == 0) {
             Flip(event.target);
         }
@@ -160,8 +165,11 @@ function timer() {
         shuffle(symbolsArray);
         fillCards();
         n = 0;
+        totalSeconds = 0;
         moves.innerHTML = n;
         checkStars();
+        gameStart = false;
+        document.querySelector('.timer').innerHTML = 'Timer';
     }
 
     // Reset button click event //
